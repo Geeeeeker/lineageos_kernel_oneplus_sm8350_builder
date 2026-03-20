@@ -1,0 +1,36 @@
+name: Build Kernel for Xiaomi 9 (raphael)
+
+on:
+  workflow_dispatch:   # 手动触发
+
+permissions:
+  contents: write      # 允许创建 Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (contains build script)
+        uses: actions/checkout@v4
+
+      - name: Make script executable
+        run: chmod +x build-raphael.sh
+
+      - name: Run build script
+        run: ./build-raphael.sh
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: AnyKernel3-raphael-11.zip
+          tag_name: raphael-11-${{ github.run_id }}
+          name: "Kernel for Xiaomi 9 (raphael) - Android 11"
+          body: |
+            Built from [Geeeeeker/android_kernel_xiaomi_sm8150-lineageos](https://github.com/Geeeeeker/android_kernel_xiaomi_sm8150-lineageos)  
+            Configuration: `raphael_defconfig`  
+            Includes KernelSU v0.9.5  
+            Flash via custom recovery (e.g., TWRP) that supports AnyKernel3.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
