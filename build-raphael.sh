@@ -7,7 +7,7 @@ export KBUILD_BUILD_USER=github
 export ARCH=arm64
 
 DEVICE="raphael"
-ANDROID_VERSION="11"
+ANDROID_VERSION="13"
 
 echo ">install tools"
 sudo apt update -y
