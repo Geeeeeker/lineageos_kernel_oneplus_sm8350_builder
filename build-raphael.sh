@@ -30,7 +30,7 @@ chmod +x antman
 cd $BASE_PATH
 
 echo ">clone kernel source"
-git clone --depth 1 https://github.com/Geeeeeker/android_kernel_xiaomi_sm8150-lineageos.git kernel
+git clone --depth 1 https://github.com/Geeeeeker/android_kernel_xiaomi_sm8150-legacy.git kernel
 
 echo ">add KernelSU"
 cd kernel
