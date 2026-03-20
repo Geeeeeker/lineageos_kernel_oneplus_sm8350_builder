@@ -14,7 +14,7 @@ jobs:
       
       - name: run build script
         run: |
-          chmod +x build.sh
+          chmod +x build-venus.sh
           ./build-venus.sh
           
       - name: upload kernel 
