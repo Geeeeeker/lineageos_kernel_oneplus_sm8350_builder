@@ -1,4 +1,4 @@
-name: build kernel
+name: build venus kernel
 
 on:
   # schedule:
