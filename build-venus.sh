@@ -36,7 +36,7 @@ cd $BASE_PATH
 echo ">build kernel"
 cd kernel
 export PATH="$BASE_PATH/toolchain/bin:${PATH}"
-make CC=clang O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 venus_defconfig
+make CC=clang O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 venus_gki_defconfig
 sed -i 's/CONFIG_CC_WERROR=y/# CONFIG_CC_WERROR=y/g' out/.config
 make CC=clang O=out ARCH=arm64 LLVM=1 LLVM_IAS=1 -j$(nproc --all)
 cd $BASE_PATH
